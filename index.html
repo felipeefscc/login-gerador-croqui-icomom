@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #3a32aa;
+        }
+        .container {
+            width: 90%;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 90%;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .popup.active {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .close-btn {
+            background: rgb(54, 54, 54);
+            color: rgb(240, 240, 240);
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            
+        }
+
+        .text-none {
+            text-decoration: none;
+        };
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="img/logo-azul.png" height="120px">
+        
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Senha">
+        <button class="btn">Entrar</button><br/><br/>
+        <p><a href="#" class="text-none" id="showRegister">Criar Conta</a></p>
+    </div>
+
+    <div class="popup" id="registerPopup">
+        <h2>Cadastro</h2>
+        <input type="text" placeholder="Nome">
+        <input type="email" placeholder="Email">
+        <input type="tel" placeholder="Telefone">
+        <input type="text" placeholder="RE">
+        <input type="password" placeholder="Senha">
+        <input type="password" placeholder="Confirme a Senha">
+        <button class="btn">Cadastrar</button>
+        <button class="close-btn" id="closePopup">Fechar</button>
+    </div>
+
+    <script>
+        document.getElementById("showRegister").addEventListener("click", function() {
+            document.getElementById("registerPopup").classList.add("active");
+        });
+        document.getElementById("closePopup").addEventListener("click", function() {
+            document.getElementById("registerPopup").classList.remove("active");
+        });
+    </script>
+</body>
+</html>
